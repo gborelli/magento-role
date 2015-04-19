@@ -1,0 +1,20 @@
+---
+- name: Download Magento
+  get_url:
+    url: "http://www.magentocommerce.com/downloads/assets/{{ magento-role_version }}/magento-{{ magento-role_version }}.tar.gz"
+    dest: "/tmp/magento-{{ magento-role_version }}.tar.gz"
+
+
+- name: Extract archive
+  command: /bin/tar xvf magento-{{ magento-role_version }}.tar.gz
+    chdir: /tmp
+    creates: "{{ magento-role_destination_path }}"
+
+
+- name: Change ownership of Magento installation
+  file:
+    path: "{{ magento-role_destination_path }}"
+    owner: "{{ magento-role_user }}"
+    group: "{{ magento-role_group }}"
+    state: directory
+    recurse: yes

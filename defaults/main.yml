@@ -1,2 +1,21 @@
 ---
-# defaults file for magento-role
+# Which version of Magento to deploy
+magento-role_version: 1.9.1.0
+
+# Magento destination and file ownership
+magento-role_destination_path: /var/www/html/magento
+magento-role_user: www-data
+magento-role_group: www-data
+
+
+# These are the Magento database settings
+# magento-role_name: magento
+# magento-role_user: magento
+# magento-role_password: secret
+
+# # You shouldn't need to change this.
+# magento-role_mysql_port: 3306
+
+# # This is used for the nginx server configuration, but # access to the
+# # Magento site is not restricted by a # named host.
+# magento-role_server_hostname: www.example.com

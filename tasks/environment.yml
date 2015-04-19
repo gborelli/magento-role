@@ -1,0 +1,24 @@
+- name: Check dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+    install_recommends: False
+    update_cache: yes
+    cache_valid_time: 3600
+  sudo: yes
+  with_items:
+    - php5-gd
+    - php5-mysql
+    - php5-curl
+    - php5-intl
+    - php5-mcrypt
+    - php5-imagick
+    - php5-fpm
+
+
+
+- name: Create Magento database
+  mysql_db: name={{ mage_db_name }} state=present
+
+- name: Create Magento database user
+  mysql_user: name={{ mage_db_user }} password={{ mage_db_password }} priv={{ mage_db_name }}.*:ALL host='localhost' state=present
