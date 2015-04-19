@@ -9,9 +9,10 @@ magento-role_group: www-data
 
 
 # These are the Magento database settings
-# magento-role_name: magento
-# magento-role_user: magento
-# magento-role_password: secret
+magento-role_db_name: magento
+magento-role_db_user: magento
+magento-role_db_password: secret
+
 
 # # You shouldn't need to change this.
 # magento-role_mysql_port: 3306
