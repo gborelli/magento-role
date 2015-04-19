@@ -7,8 +7,8 @@
 
 - name: Extract archive
   command: /bin/tar xvf magento-{{ magento-role_version }}.tar.gz
-    chdir: /tmp
-    creates: "{{ magento-role_destination_path }}"
+           chdir=/tmp
+           creates={{ magento-role_destination_path }}
 
 
 - name: Change ownership of Magento installation
